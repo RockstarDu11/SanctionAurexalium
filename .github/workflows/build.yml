@@ -1,0 +1,29 @@
+name: Build SanctionAurexalium
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v5
+
+      - name: Installer Java 8
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '8'
+          cache: maven
+
+      - name: Compiler
+        run: mvn -B clean package
+
+      - name: Envoyer le jar
+        uses: actions/upload-artifact@v4
+        with:
+          name: SanctionAurexalium-plugin
+          path: target/SanctionAurexalium-1.0.jar
