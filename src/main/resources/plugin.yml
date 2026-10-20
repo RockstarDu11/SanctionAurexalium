@@ -1,0 +1,14 @@
+name: SanctionAurexalium
+main: fr.aurexalium.SanctionAurexalium
+version: 1.0
+description: Sanction Aurexalium - menu de sanctions /ss compatible MaxBans
+softdepend: [MaxBans]
+commands:
+  ss:
+    description: Ouvre le menu de sanction d'un joueur
+    usage: /ss <joueur>
+    permission: ss.use
+permissions:
+  ss.use:
+    description: Utiliser /ss
+    default: op
